@@ -1,13 +1,16 @@
 package com.example.movieslistapp.view
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.movieslistapp.R
 import com.example.movieslistapp.databinding.FragmentMovieDetailBinding
 
 
@@ -55,6 +58,8 @@ class MovieDetailFragment : Fragment() {
             binding.btnBack.setOnClickListener {
                 findNavController().navigateUp()
             }
+            videoView.setVideoURI(Uri.parse("android.resource://"+activity?.packageName+"/"+R.raw.videoplayback))
+            videoView.start()
         }
     }
 

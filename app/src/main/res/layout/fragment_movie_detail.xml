@@ -26,10 +26,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/btn_back"/>
 
-    <ImageView
+    <VideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="220dp"
         android:src="@drawable/mcu_logo"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toBottomOf="@id/btn_back"
