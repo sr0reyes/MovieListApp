@@ -1,5 +1,6 @@
 package com.example.movieslistapp.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.movieslistapp.model.entities.Movie
 import com.example.movieslistapp.model.MoviesRepository
@@ -23,9 +24,14 @@ class MoviesListViewModel @Inject constructor(
     }
 
     private suspend fun downloadMovies() {
-        moviesRepository.downloadMovies(api_key).let {
-            moviesRepository.syncData(it.results)
+        try {
+            moviesRepository.downloadMovies(api_key).let {
+                moviesRepository.syncData(it.results)
+            }
+        } catch (e: Exception) {
+            Log.d("TAG", "downloadMovies: error")
         }
+
     }
 
     init {
